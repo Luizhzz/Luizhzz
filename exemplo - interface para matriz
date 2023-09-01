@@ -1,0 +1,58 @@
+
+
+PROGRAM teste_matriz  !nome do programa.
+
+!----------INICIO INTERFACE----------------!
+INTERFACE							!obrigatorio interface para passar uma matriz da subrotina para o programa.
+  SUBROUTINE digita_matriz(matriz_A, m, n)			!nome da subrotina
+    INTEGER, INTENT(IN) :: m, n						! intent(in) --> dados de entrada
+    REAL*4, ALLOCATABLE, INTENT(INOUT) :: matriz_A(:,:)  ! intent(out) --> dados de saida
+  END SUBROUTINE digita_matriz
+END INTERFACE
+!----------FIM INTERFACE----------------!
+
+!---- inicio declaração de variáveis------!
+
+
+INTEGER :: m, n	
+REAL*4, ALLOCATABLE :: matriz_A(:,:)  !matriz de tamanho variavel com dados tipo real*4
+
+!----FIM declaração de variáveis------!
+
+
+m = 3
+n = 2 
+
+ALLOCATE (matriz_A(m+2, n))		!separando na memoria local com tamanho correto para caber a matriz.
+
+CALL digita_matriz(matriz_A, m, n)	!comando para executar a subrotina de nome digita_matriz 
+
+
+  DO i = 1, m     ! Imprime cada linha da matriz em linhas separadas na tela separados por ";"
+    DO j = 1, n
+      WRITE(*, '(F6.4, A)', ADVANCE='NO') matriz_A(i, j), '; '
+    END DO
+    WRITE(*, *)   ! Imprime uma nova linha após cada linha da matriz
+	  END DO
+
+END PROGRAM teste_matriz	! fim do programa principal.
+
+
+!------------------------------------------------------!
+SUBROUTINE digita_matriz(matriz_A, m, n)	
+ IMPLICIT NONE
+!---- inicio declaração de variáveis locais ------! 
+ INTEGER :: m, n, i, j
+ REAL*4, ALLOCATABLE :: matriz_A(:,:)
+!---- FIM declaração de variáveis locais ------! 
+
+i=m 
+j = n 
+
+  DO j = 1, n
+    DO i = 1, m+2
+      matriz_A(i,j) = 5		!escreve na posição (i,j) da matriz o valor 5
+    END DO
+  END DO
+
+END SUBROUTINE digita_matriz
