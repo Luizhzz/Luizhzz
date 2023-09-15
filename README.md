@@ -1,7 +1,5 @@
-- 👋 Hi, I’m @Luizhzz
-- 👀 I’m interested in Arduino, html, css, C and R.
-- 🌱 I’m currently learning html.
-- 💞️ I’m looking to collaborate on ...
+- 👋 Hi, I’m Eng. @Luizhzz
+-
 - 📫 How to reach me ... www.linkedin.com/in/eng-luiz-henrique-araujo-13100a36/
 
 <!---
